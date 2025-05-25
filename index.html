@@ -1,0 +1,1610 @@
+<html lang="pl"><head>
+
+
+
+<title>Wisła Kraków oficjalny portal biletowy | roboticket</title>
+<meta name="description" content="Bilety Karnety Wisła">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta name="keywords" content="Bilety, Wisła">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ecommerce.js"></script><script src="https://connect.facebook.net/signals/config/761572644267430?v=2.9.203&amp;r=stable&amp;domain=bilety.wislakrakow.com&amp;hme=36c7454c4b078660353e5d4c89e3eaca439a56e5c3ceaadddff6c79ae427835a&amp;ex_m=74%2C128%2C113%2C117%2C65%2C6%2C106%2C73%2C19%2C101%2C93%2C55%2C58%2C183%2C204%2C211%2C207%2C208%2C210%2C32%2C107%2C57%2C81%2C209%2C178%2C181%2C205%2C206%2C191%2C140%2C45%2C196%2C193%2C194%2C37%2C152%2C18%2C54%2C200%2C199%2C142%2C21%2C44%2C2%2C47%2C69%2C70%2C71%2C75%2C97%2C20%2C17%2C100%2C96%2C95%2C114%2C56%2C116%2C42%2C115%2C33%2C98%2C43%2C90%2C29%2C179%2C182%2C149%2C14%2C15%2C16%2C8%2C9%2C28%2C25%2C26%2C61%2C66%2C68%2C79%2C105%2C108%2C30%2C80%2C12%2C10%2C84%2C52%2C24%2C110%2C109%2C111%2C102%2C13%2C23%2C4%2C41%2C78%2C22%2C161%2C136%2C77%2C1%2C99%2C60%2C88%2C36%2C31%2C86%2C87%2C92%2C40%2C7%2C94%2C85%2C48%2C35%2C38%2C0%2C72%2C118%2C91%2C5%2C51%2C50%2C89%2C248%2C176%2C126%2C164%2C157%2C3%2C39%2C67%2C46%2C112%2C49%2C83%2C64%2C63%2C34%2C103%2C62%2C59%2C53%2C82%2C76%2C27%2C104%2C11%2C119" async=""></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=276d99c1733e5d294b77c6f8b2bf971b" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="https://connect.facebook.net/en_US/sdk.js"></script><script async="" src="//web.snrbox.com/synerise-javascript-sdk.min.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5Z7D887"></script><script src="https://static-fr.roboticket.com/Scripts/build/scripts.min.js?=v132" type="text/javascript"></script>		
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.prod.js"></script>
+
+
+    <link href="https://static-fr.roboticket.com/Content/Styles/clubs/WislaKrakow/stylesheets/user.css?v=132" rel="stylesheet" type="text/css">
+
+    <link href="https://static-fr.roboticket.com/Content/Styles/clubs/WislaKrakow/stylesheets/biometric.css?v=132" rel="stylesheet" type="text/css">
+
+<script src="https://static-fr.roboticket.com/Content/noUiSlider/nouislider.js" type="text/javascript"></script>
+
+<!--Google Tag Manager beginning-->
+<script type="text/javascript">
+    dataLayer = [];
+
+    function GTMDataLayerTrackPurchase(transactionId, accountId) {
+        try {
+            match = document.cookie.match(new RegExp('GTMDataLayer_PurchaseTracking=([^;]+)'));
+            if (match) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Transaction/GetGAData",
+                    data: { "transactionId": transactionId, "accountId": accountId },
+                    success: function (data) {
+                        var products = [];
+                        for (var i = 0; i < data.Items.length; i++) {
+                            products.push({
+                                name: data.Items[i].Name,
+                                id: data.Items[i].ProductId,
+                                price: data.Items[i].Price,
+                                brand: data.Items[i].ProductId,
+                                category: data.Items[i].ProductType,
+                                variant: data.Items[i].PriceType,
+                                quantity: 1,
+                            });
+                        }
+
+                        dataLayer.push({
+                            event: 'ec_transaction',
+                            ecommerce: {
+                                purchase: {
+                                    actionField: {
+                                        id: transactionId,
+                                        affiliation: data.Tran.PointOfSale,
+                                        revenue: data.Tran.Revenue
+                                    },
+                                    products: products
+                                }
+                            }
+                        });
+                    }
+                });
+                document.cookie = "GTMDataLayer_PurchaseTracking=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+            }
+        }
+        catch (err) { console.log(err); }
+    }
+
+    function GTMPrepareItem(object, item, dictItem) {
+        try {
+            if (object != null && item != null && item.data != null) {
+                var data = item.data;
+                var priceTypeName = null;
+                var deliveryTypeName = null;
+
+                if (data.PriceTypeId != null)
+                    priceTypeName = dictItem.PriceTypes[data.PriceTypeId][0].PriceTypeName;
+                if (data.DeliveryTypeId)
+                    deliveryTypeName = dictItem.DeliveryTypes[data.DeliveryTypeId];
+
+                object.items.push({
+                    id: data.ItemId,
+                    product_type_id: item.productType,
+                    product_type_name: item.productTypeStr,
+                    product_id: data.ProductId,
+                    product_name: dictItem.ItemName,
+                    external_product_id: data.ExternalRef || null,
+                    price_type_id: data.PriceTypeId || null,
+                    price_type_name: priceTypeName,
+                    price: data.ItemPrice,
+                    currency: 'PLN',
+                    platform_name: data.Platform || null,
+                    sector_id: data.SectorId || null,
+                    sector_name: data.SectorName || null,
+                    seat_id: data.SeatId || null,
+                    seat_row: data.SeatRow || null,
+                    seat_number: data.SeatNumber || null,
+                    voucher_number: data.VoucherNumber || null,
+                    delivery_type_id: data.DeliveryTypeId || null,
+                    delivery_type_name: deliveryTypeName || null,
+                    delivery_price: data.DeliveryPrice || null
+                });
+            }
+            return object;
+        }
+        catch (error) { console.log(error); }
+    }
+
+    function GTMPrepareObjectFromCart(transactionId, value, cart, dict) {
+        try {
+            var object = {
+                currency : 'PLN',
+                value : value,
+                transaction_id : transactionId,
+                items : []
+            };
+
+            $.each(cart, function (pt, productTypes) {
+                $.each(cart[pt], function (p, products) {
+                    $.each(cart[pt][p], function (i, item) {
+                        var dictItem = dict[pt][p];
+                        GTMPrepareItem(object, item, dictItem)
+                    })
+                })
+            });
+            return object;
+        }
+        catch (error) { console.log(error); }
+    }
+
+    function GTMPrepareShortItem(object, item, dictItem) {
+        try {
+            if (object != null && item != null && item.data != null) {
+                var data = item.data;
+                object.items.push({
+                    id: data.ItemId,
+                    product_type_id: item.productType,
+                    product_type_name: item.productTypeStr,
+                    product_id: data.ProductId,
+                    product_name: dictItem.ItemName,
+                    external_product_id: data.ExternalRef || null,
+                    platform_name: data.Platform || null,
+                    sector_id: data.SectorId || null,
+                    sector_name: data.SectorName || null,
+                    seat_id: data.SeatId || null,
+                    seat_row: data.SeatRow || null,
+                    seat_number: data.SeatNumber || null,
+                });
+            }
+            return object;
+        }
+        catch (error) { console.log(error); }
+    }
+
+    function GTMPrepareShortObjectFromCart(transactionId, cart, dict) {
+        try {
+            var object = {
+                transaction_id: transactionId,
+                items: []
+            };
+
+            $.each(cart, function (pt, productTypes) {
+                $.each(cart[pt], function (p, products) {
+                    $.each(cart[pt][p], function (i, item) {
+                        var dictItem = dict[pt][p];
+                        GTMPrepareShortItem(object, item, dictItem)
+                    })
+                })
+            })
+            return object;
+        }
+        catch (error) { console.log(error); }
+    }
+
+    function GTMDataLayerPush(eventName, data) {
+        dataLayer.push({ ecommerce: null });
+        dataLayer.push({ event: eventName, ecommerce: data });
+    }
+
+    function GTMCheckCartChanges(cartObject) {
+        try {
+            var data = localStorage.getItem("GoogleTagManagerCart");
+
+            if (localStorage.length == 0 || data == null || data == "") {
+
+                localStorage.setItem("GoogleTagManagerCart", JSON.stringify(cartObject));
+                GTMDataLayerPush("add_to_cart", cartObject);
+            }
+            else {
+                var parsedData = JSON.parse(data);
+
+                if (parsedData.transaction_id != cartObject.transaction_id) {
+                    localStorage.setItem("GoogleTagManagerCart", JSON.stringify(cartObject));
+                    GTMDataLayerPush("add_to_cart", cartObject);
+                }
+                else {
+                    var removed = parsedData.items.filter(function (obj) {
+                        return !cartObject.items.some(function (obj2) {
+                            return (obj.id == obj2.id) && (obj.product_type_id == obj2.product_type_id);
+                        });
+                    });
+
+                    var added = cartObject.items.filter(function (obj) {
+                        return !parsedData.items.some(function (obj2) {
+                            return (obj.id == obj2.id) && (obj.product_type_id == obj2.product_type_id);
+                        });
+                    });
+
+                    if (added.length > 0 || removed.length > 0) {
+
+                        localStorage.setItem("GoogleTagManagerCart", JSON.stringify(cartObject));
+
+                        if (added.length > 0) {
+                            GTMDataLayerPush("add_to_cart", { transactionId: cartObject.transaction_id, items: added });
+                        }
+                        if (removed.length > 0) {
+                            GTMDataLayerPush("remove_from_cart", { transactionId: cartObject.transaction_id, items: removed });
+                        }
+                    }
+                }
+            }
+        }
+        catch (error) { console.log(error); }
+    }
+</script>
+
+    <script type="text/javascript">
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5Z7D887');
+    </script>
+<!--Google Tag Manager end-->
+
+<link rel="apple-touch-icon" sizes="57x57" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/favicon-16x16.png">
+<link rel="manifest" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/site.webmanifest">
+<link rel="mask-icon" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/safari-pinned-tab.svg" color="#000000">
+<link rel="shortcut icon" href="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+    
+    
+    
+    <!--Facebook Pixel head script beginning-->
+    <script type="text/javascript">
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '761572644267430');
+    </script>
+    <!--Facebook Pixel head script end-->
+    <!--Google Analytics head script beginning-->
+    <!--for UA properties-->
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    </script>
+    <!--for GA4 properties-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VZNMCHZM8B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VZNMCHZM8B');
+    </script>
+    <!--Google Analytics head script end-->
+
+
+    
+    <script type="text/javascript" src="https://static-fr.roboticket.com/Scripts/polyfill.min.js"></script>
+    <script type="text/javascript" src="https://static-fr.roboticket.com/Scripts/path-data-polyfill.js"></script>
+
+    
+
+
+<link rel="preload" as="style" href="https://www.snrcdn.net/sdk/3.0/synerise-javascript-sdk.min.css"><link rel="stylesheet" type="text/css" href="https://www.snrcdn.net/sdk/3.0/synerise-javascript-sdk.min.css"><style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82,82,82,.7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0px;margin:0px;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:white;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0,0,0,.4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0px 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267b2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:white;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style><style type="text/css" data-gs-style-id="gridstack-style-75719"></style></head>
+<body dir="ltr">
+
+
+<script>
+    function readCookie (name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+</script>
+
+<div class="mobile-background"></div>
+
+        <header class="compact-navbar 
+                home 
+                ">
+            <div class="container">
+                <a href="/" class="logo-top">
+                        <img src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/emblem-top.svg" class="hide-on-mobile">
+                        <img src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/emblem-top-nav.svg" class="show-on-mobile">  
+                </a>
+                 
+<div class="flags">
+
+
+    <a class="lang-btn dropdown-button" href="#" data-activates="dropdown1">
+        <span>Polski</span>
+        <i class="material-icons" style="font-size:1rem">arrow_drop_down</i>
+    </a><ul id="dropdown1" class="dropdown-content">
+            <li>
+                <a href="/Home/ChangeLocalization?culture=de-DE&amp;redirectUrl=%252f">
+                    <span>Deutsch</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Home/ChangeLocalization?culture=en-US&amp;redirectUrl=%252f">
+                    <span>English</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Home/ChangeLocalization?culture=pl-PL&amp;redirectUrl=%252f">
+                    <span>Polski</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Home/ChangeLocalization?culture=uk-UA&amp;redirectUrl=%252f">
+                    <span>Українська</span>
+                </a>
+            </li>
+    </ul>
+    
+</div>
+                    <div id="headerCardPanel">
+
+
+
+
+<style>
+    #accountOnBucketBehalf {
+        font-size: 0.8rem;
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        line-height: 20px;
+    }
+</style>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+</div>
+                </div>
+        </header>
+
+
+    <main>
+            <div class="container">
+                
+
+
+
+
+
+
+
+
+
+<section id="eventList">
+    <div data-wow-delay="0.2s" class="grid-stack wow fadeInDown grid-stack-instance-3947 animated" style="visibility: visible; height: 1114px; animation-delay: 0.2s;" data-gs-current-height="18">
+
+<div onclick="window.location.href='kupbilet.html'" class="grid-stack-item wow fadeInUp product-5Voucher prezentowy można" data-gs-x="0" data-gs-y="8" data-gs-width="3" data-gs-height="10" data-product="565_5" data-is-offsale="false" data-allow-hide="true" data-start="2023-06-16 00:00" data-stop="2025-06-30 00:00" style="visibility: visible; animation-name: fadeInUp;"><div class="grid-stack-item-content"><div class="card card-home large"><div class="card-image"><a onclick="" href="kupowanie.html" title="Kup"><picture><source srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Voucher_srennab/565_small_pl-PL?nocache=077618fb101a48bb81556cb9a883878d" media="(max-width: 768px)">    <source srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Voucher_srennab/565_big_pl-PL?nocache=2111b9d695944d2881c415a7115b93ee">    <img srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Voucher_srennab/565_big_pl-PL?nocache=2111b9d695944d2881c415a7115b93ee" src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Voucher_srennab/565_big_pl-PL?nocache=2111b9d695944d2881c415a7115b93ee" alt="My default image"></picture></a></div><div class="card-content activator"><span class="card-title activator grey-texttext-darken-4">Wisła Kraków VS Michał FC  <span class="event-date"></span> </span><p class="activator"><i class="material-icons left expand">expand_less</i> zasilić kwotą od 10 zł do 1906 zł i następnie wykorzystywać go w formie „elektronicznego portfela” przy zakupie biletów i karnetów na mecze Wisły Kraków rozgrywane na Stadionie Miejskim im. H. Reymana.<br><br>Po nabyciu vouchera otrzymasz specjalny kod, który możesz pobrać w formacie A4. Umożliwia on zakup pojedynczych wejściówek, jak i biletów dla kilku osób, a także karnetów. Kod vouchera możesz wykorzystać wielokrotnie do momentu wyczerpania łącznej kwoty przeznaczonej na zakup biletów i karnetów na mecze Wisły Kraków rozgrywane na Stadionie im. H. Reymana. W przypadku przekroczenia kwoty dostępnej na voucherze będziesz mógł dopłacić brakującą różnicę. Niewykorzystane środki na voucherze nie podlegają zwrotowi.<br><br>Przy zakupie należy podać imię, nazwisko oraz numer PESEL. Voucher będzie przypisany do konta osoby, której dane zostaną podane przy zakupie. Bon można pobrać z osobistego profilu, a w przypadku nabycia go dla innej osoby, pojawi się w profilu obdarowanego (nie będzie widoczny w Twoim profilu).<br><br>Voucher pobrać można ze swojego profilu, a przy zakupie na dane osoby obdarowywanej, pojawi się on w profilu tej osoby (nie będzie widoczny w Twoim profilu).<br><br>Dane osoby, które podane zostały przy zakupie vouchera nie będą widoczne na voucherze.<br><br>Instrukcja zakupu przez Internet:<br>1. Zaloguj się na swoje konto w systemie biletowym;<br>2. Kliknij baner „Kup voucher” lub wybierz go z sekcji „Vouchery” w systemie biletowym dostępnej po zalogowaniu;<br>3. Wpisz dane osoby, której chcesz przysiąc voucher. Jęli chcesz, aby był on niespodzianką, wpisz swoje dane. Pamiętaj, że voucher będzie przypisany w systemie do profilu osoby, której dane podałeś przy zakupie. W przypadku nabycia na swoje dane, możesz go wydrukować i przekazać innej osobie w formie prezentu (osoba, której dane wpiszesz, będzie mogła zobaczyć voucher w swoim koncie biletowym);<br>4. Wybierz wartość vouchera przy pomocy suwaka. Możliwe jest wybranie dowolnej kwoty z przedziału 10-1906 zł. Pamiętaj, że voucher możesz użyć wielokrotnie aż do wyczerpania salda;<br>5. Przejdź do podsumowania, a następnie zrealizuj transakcję za pomocą jednej z dostępnych metod płatności;<br> 6. Po dokonaniu płatności voucher będzie dostępny na profilu osoby, której dane podałeś w momencie zakupu;<br> 7. Aby wydrukować voucher kliknij zakładkę „Twoje konto” - dostępną obok nazwiska, w prawej górnej części strony. Przewiń stronę na sam dół, gdzie widoczny będzie voucher biletowy wraz z pełną informacją. Po kliknięciu „Pobierz voucher” będziesz mógł go wydrukować w formacie A4.<br><br>Pamiętaj, że musisz być zalogowany na profilu osoby, której dane podałeś w momencie zakupu.<br><br>FAQ:<br>- Za jaką kwotę można kupić? Dowolna kwota z przedziału 10-1906 zł;<br>- Czy voucher mogę przekazać innej osobie? Tak, voucher możesz przekazać dowolnej osobie (kilku osobom) i będzie do wykorzystania do momentu osiągnięcia jego wartości lub upłynięcia daty ważności;<br>- Czy kod voucherowy mogę użyć do zakupu biletów dla innych osób? Tak, kod uprawia do zakupu dowolniej liczby biletów lub karnetów. Pamiętaj, że w przypadku przekroczenia jego wartości należy dopłacić różnicę;<br>- Na jakie mecze mogę wykorzystać voucher? Wszystkie mecze Wisły Kraków rozgrywane na Stadionie im. H. Reymana w sezonie 2022/23. Po ostatnim meczu niewykorzystane kwoty voucherów tracą swoją ważność (11.06.2023);<br>- Mam voucher, ale jego wartość jest niższa niż cena biletu, czy mogę dopłacić brakującą różnicę? Tak, jeżeli kwota do zapłaty przewyższa wartość vouchera, brakującą różnicę należy dopłacić;<br>- Wykorzystałem część środków z vouchera, czy mogę te środki wypłacić? Nie, niewykorzystane środki z vouchera nie podlegają zwrotowi po wygaśnięciu jego ważności. Nie można także dokonać zwrotu zakupionego vouchera niezależnie, czy został on wykorzystany w części lub pozostał niewykorzystany;<br>- Posiadam dwa vouchery, czy mogę je wykorzystać do zakupu jednego biletu lub karnetu? Nie, nie ma możliwości łączenia dwóch lub więcej voucherów przy zakupie jednego biletu lub karnetu (jeden bilet - jeden kod). Możesz wykorzystać dwa kody w jednej transakcji, kupując np. 2 lub więcej biletów (jeden kod możesz wykorzystać wielokrotnie).<br><br>Instrukcja realizacji vouchera biletowego przez Internet:<br>1. Wybierz mecz, sektor, rząd i miejsce;<br>2. Na stronie podsumowania - w polu „Użyj voucher” - wpisz cały kod vouchera lub kliknij przycisk UŻYJ KODU RABATOWEGO, jeżeli masz przypisany voucher do swojego konta;<br>4. Cena biletu zostanie pomniejszona o dostępną wartość na voucherze;<br>5. Zrealizuj zakup biletu. W przypadku przekroczenia kwoty dostępnej na voucherze będziesz mógł dopłacić brakującą różnicę.</p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">Wisła VS Michał FC <span class="event-date"></span><i class="material-icons right">close</i></span><p>Zakup Biletów zasilić kwotą od 10 zł do 1906 zł i następnie wykorzystywać go w formie „elektronicznego portfela” przy zakupie biletów i karnetów na mecze Wisły Kraków rozgrywane na Stadionie Miejskim im. H. Reymana.<br><br>Po nabyciu vouchera otrzymasz specjalny kod, który możesz pobrać w formacie A4. Umożliwia on zakup pojedynczych wejściówek, jak i biletów dla kilku osób, a także karnetów. Kod vouchera możesz wykorzystać wielokrotnie do momentu wyczerpania łącznej kwoty przeznaczonej na zakup biletów i karnetów na mecze Wisły Kraków rozgrywane na Stadionie im. H. Reymana. W przypadku przekroczenia kwoty dostępnej na voucherze będziesz mógł dopłacić brakującą różnicę. Niewykorzystane środki na voucherze nie podlegają zwrotowi.<br><br>Przy zakupie należy podać imię, nazwisko oraz numer PESEL. Voucher będzie przypisany do konta osoby, której dane zostaną podane przy zakupie. Bon można pobrać z osobistego profilu, a w przypadku nabycia go dla innej osoby, pojawi się w profilu obdarowanego (nie będzie widoczny w Twoim profilu).<br><br>Voucher pobrać można ze swojego profilu, a przy zakupie na dane osoby obdarowywanej, pojawi się on w profilu tej osoby (nie będzie widoczny w Twoim profilu).<br><br>Dane osoby, które podane zostały przy zakupie vouchera nie będą widoczne na voucherze.<br><br>Instrukcja zakupu przez Internet:<br>1. Zaloguj się na swoje konto w systemie biletowym;<br>2. Kliknij baner „Kup voucher” lub wybierz go z sekcji „Vouchery” w systemie biletowym dostępnej po zalogowaniu;<br>3. Wpisz dane osoby, której chcesz przysiąc voucher. Jęli chcesz, aby był on niespodzianką, wpisz swoje dane. Pamiętaj, że voucher będzie przypisany w systemie do profilu osoby, której dane podałeś przy zakupie. W przypadku nabycia na swoje dane, możesz go wydrukować i przekazać innej osobie w formie prezentu (osoba, której dane wpiszesz, będzie mogła zobaczyć voucher w swoim koncie biletowym);<br>4. Wybierz wartość vouchera przy pomocy suwaka. Możliwe jest wybranie dowolnej kwoty z przedziału 10-1906 zł. Pamiętaj, że voucher możesz użyć wielokrotnie aż do wyczerpania salda;<br>5. Przejdź do podsumowania, a następnie zrealizuj transakcję za pomocą jednej z dostępnych metod płatności;<br> 6. Po dokonaniu płatności voucher będzie dostępny na profilu osoby, której dane podałeś w momencie zakupu;<br> 7. Aby wydrukować voucher kliknij zakładkę „Twoje konto” - dostępną obok nazwiska, w prawej górnej części strony. Przewiń stronę na sam dół, gdzie widoczny będzie voucher biletowy wraz z pełną informacją. Po kliknięciu „Pobierz voucher” będziesz mógł go wydrukować w formacie A4.<br><br>Pamiętaj, że musisz być zalogowany na profilu osoby, której dane podałeś w momencie zakupu.<br><br>FAQ:<br>- Za jaką kwotę można kupić? Dowolna kwota z przedziału 10-1906 zł;<br>- Czy voucher mogę przekazać innej osobie? Tak, voucher możesz przekazać dowolnej osobie (kilku osobom) i będzie do wykorzystania do momentu osiągnięcia jego wartości lub upłynięcia daty ważności;<br>- Czy kod voucherowy mogę użyć do zakupu biletów dla innych osób? Tak, kod uprawia do zakupu dowolniej liczby biletów lub karnetów. Pamiętaj, że w przypadku przekroczenia jego wartości należy dopłacić różnicę;<br>- Na jakie mecze mogę wykorzystać voucher? Wszystkie mecze Wisły Kraków rozgrywane na Stadionie im. H. Reymana w sezonie 2022/23. Po ostatnim meczu niewykorzystane kwoty voucherów tracą swoją ważność (11.06.2023);<br>- Mam voucher, ale jego wartość jest niższa niż cena biletu, czy mogę dopłacić brakującą różnicę? Tak, jeżeli kwota do zapłaty przewyższa wartość vouchera, brakującą różnicę należy dopłacić;<br>- Wykorzystałem część środków z vouchera, czy mogę te środki wypłacić? Nie, niewykorzystane środki z vouchera nie podlegają zwrotowi po wygaśnięciu jego ważności. Nie można także dokonać zwrotu zakupionego vouchera niezależnie, czy został on wykorzystany w części lub pozostał niewykorzystany;<br>- Posiadam dwa vouchery, czy mogę je wykorzystać do zakupu jednego biletu lub karnetu? Nie, nie ma możliwości łączenia dwóch lub więcej voucherów przy zakupie jednego biletu lub karnetu (jeden bilet - jeden kod). Możesz wykorzystać dwa kody w jednej transakcji, kupując np. 2 lub więcej biletów (jeden kod możesz wykorzystać wielokrotnie).<br><br>Instrukcja realizacji vouchera biletowego przez Internet:<br>1. Wybierz mecz, sektor, rząd i miejsce;<br>2. Na stronie podsumowania - w polu „Użyj voucher” - wpisz cały kod vouchera lub kliknij przycisk UŻYJ KODU RABATOWEGO, jeżeli masz przypisany voucher do swojego konta;<br>4. Cena biletu zostanie pomniejszona o dostępną wartość na voucherze;<br>5. Zrealizuj zakup biletu. W przypadku przekroczenia kwoty dostępnej na voucherze będziesz mógł dopłacić brakującą różnicę.</p></div><div class="card-action"><a onclick="" href="/Voucher/Buy?id=565" title="Kup" class="btn-item btn-buy btn-floating btn-large waves-effect waves-light btn-success"><i class="material-icons">add_shopping_cart</i></a><a href="" title="" class="btn-item btn-parking btn-floating waves-effect waves-light blue hide"><i class="material-icons">local_parking</i></a><a href="" title="" class="btn-item btn-info btn-floating waves-effect waves-light blue hide"><i class="material-icons">info</i></a><a href="" title="" class="btn-item btn-custom btn-floating waves-effect waves-light blue hide"><i class="material-icons">info</i></a></div></div></div></div><div class="grid-stack-item wow fadeInUp product-7" data-gs-x="2" data-gs-y="0" data-gs-width="1" data-gs-height="8" data-product="1_7" data-is-offsale="false" data-allow-hide="false" data-start="" data-stop="" style="visibility: visible; animation-name: fadeInUp;"><div class="grid-stack-item-content"><div class="card card-home large">  <div class="card-image">    <a href="https://wislakrakow.roboticket.com/CMS?page=zwolnij_miejsce" title="Zwolnij miejsce">      <picture>        <source srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/695/zwolnij_small.png" media="(max-width: 768px)">        <source srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/695/zwolnij_small.png">        <img srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/695/zwolnij_small.png" src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/695/zwolnij_small.png" alt="Zwolnij miejsce">      </picture>    </a>  </div>  <div class="card-content activator">    <span class="card-title activator grey-texttext-darken-4">Zwolnij swoje miejsce</span>  </div></div></div></div><div class="grid-stack-item wow fadeInUp product-7" data-gs-x="0" data-gs-y="0" data-gs-width="2" data-gs-height="8" data-product="1_7" data-is-offsale="false" data-allow-hide="false" data-start="" data-stop="" style="visibility: visible; animation-name: fadeInUp;"><div class="grid-stack-item-content"><div class="card card-home large">  <div class="card-image">    <a href="https://wislakrakow.roboticket.com/CMS?page=friends_family" title="Friends &amp; Family">      <picture>        <source srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/662/413x400_Roboticket_FF.png" media="(max-width: 768px)">        <source srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/662/1280x500_Roboticket_FF.png">        <img srcset="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/662/1280x500_Roboticket_FF.pngg" src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/662/1280x500_Roboticket_FF.pngg" alt="Friends &amp; Family">      </picture>    </a>  </div>  <div class="card-content activator">    <span class="card-title activator grey-texttext-darken-4">Moduł Friends &amp; Family</span>  </div></div></div></div>    </div>
+</section>
+<div id="modalDiv" class="modal"></div>
+<script src="https://static-fr.roboticket.com/Scripts/pageLayout/dist/home_banners.js"></script>
+<script type="text/javascript">
+    var $modalDiv = $('#modalDiv');
+    function jsonOrHtml(jqXHR, data, json, html) {
+        var ct = jqXHR.getResponseHeader('content-type') || "";
+        if (ct.indexOf('json') > -1) { 
+            json(data);
+        } else if (ct.indexOf('html') > -1) { 
+            html(data);
+        } else { 
+        }
+    }
+    function eventReservationSelector(eventId) {
+        $.get('/Home/EventReservationSelector', { 'eventId': eventId }, function (data, textStatus, jqXHR) {
+            jsonOrHtml(jqXHR, data,
+                function (json) { window.location = json.redirect; },
+                function (html) {
+                    $modalDiv.html(html);
+                    $modalDiv.openModal(); }
+            );
+        });
+        return false;
+    }
+    function seasonTicketReservationSelector(seasonTicketId) {
+        $.get('/Home/SeasonTicketReservationSelector', { 'seasonTicketId': seasonTicketId }, function (data, textStatus, jqXHR) {
+            jsonOrHtml(jqXHR, data,
+                function (json) { window.location = json.redirect; },
+                function (html) {
+                    $modalDiv.html(html);
+                    $modalDiv.openModal();
+                }
+            );
+        });
+        return false;
+    }
+    function merchandiseSelector(merchandiseId, userId, date) {
+        $.get('/Home/MerchandiseSelector', { 'merchandiseId': merchandiseId, 'userId': userId, 'date': date }, function (data, textStatus, jqXHR) {
+            jsonOrHtml(jqXHR, data,
+                function (json) { window.location = json.redirect; },
+                function (html) {
+                    $('#modalDiv').html(html);
+                    $('#modalDiv').openModal();
+                    $('#modalDiv').css("zIndex", 2000);
+                }
+            );
+        });
+        return false;
+    }
+    $(document).ready(function () {
+
+
+        var Banners = (function () {
+            var BannersConstructor = function () {
+                var GRID_STACK_BODY = $('#eventList').html();
+            }
+
+
+
+            return BannersConstructor
+
+        })();
+
+        var banners = new Banners();
+
+
+        function isInvalidItem (item) {
+            var IISNowSdf = '2025-05-25 15:06';
+            var startDate = item.data('start'),
+                    stopDate = item.data('stop'),
+                    offsale = item.data('is-offsale'),
+                    hide = item.data('allow-hide');
+            if (startDate > IISNowSdf && hide && !offsale || stopDate < IISNowSdf && hide && !offsale) {
+                return true
+            }
+
+            return false;
+
+        }
+        function removeInvalidItems (items) {
+
+            var plugin = $('.grid-stack').data('gridstack');
+            _.each(items, function (i) {
+                var isInvalid = isInvalidItem($(i));
+                var node = $(i).data('_gridstack_node');
+
+                if (isInvalid) {
+                    plugin.grid.removeNode(node, true);
+                    $(document).trigger('resize');
+
+                }
+            })
+        }
+
+
+
+        function sortGrid(a, b) {
+            return ($(b).data("gs-y") + $(b).data("gs-x")) < ($(a).data("gs-y") + $(a).data("gs-x")) ? 1 : -1;
+        }
+
+        function setItemAttr(item) {
+            $(item).attr({
+                'data-gs-width': 1,
+                'data-gs-x': 0,
+                'data-gs-y': 0,
+                'data-gs-auto-position': true
+            });
+            var img = $('.card-image img', item);
+            var source = $('source', item);
+            var oldSRC = img.attr('src') ?? img.attr('srcset');
+            var newSRC = oldSRC.replace(/(medium|big)/g, 'small');
+            img.attr({
+                'src': newSRC,
+                'srcset': newSRC
+            });
+            source.attr('srcset', newSRC);
+        }
+
+        function createNewItemInContainer(itemId, itemName, container) {
+            var item = $('<div/>');
+            var newItem = item.clone().addClass('home-categories-item fn-choose-custom-category');
+            newItem.data('data-category-id', itemId);
+            newItem.append('<span class="home-categories-title">' + itemName + '</span>');
+            newItem.appendTo(container);
+        }
+
+        function chooseCustomCategoryMenu(el, removeChildren) {
+            $.post('/MainPageCategory/GetActiveCategories', function (data) {
+                if (data != null && data.Status == true) {
+                    var activeCategories = JSON.parse(data.ActiveCategories);
+                    var container = $(el);
+
+                    if (removeChildren)
+                        container.children().remove();
+
+                    if (container.children().toArray().filter(function (e) { return ($(e).data('id') === 'all') }).length == 0) {
+                        createNewItemInContainer('all', "Wszystkie", container);
+                    }
+
+                    var items = $('.grid-stack').children();
+                    activeCategories.forEach(function (category) {
+                        items.each(function (i) {
+                            var item = $(items[i]);
+                            if (category.Products.filter(function (e) { return (e.ProductId + "_" + e.ProductType) == item.data('product') }).length > 0) {
+                                createNewItemInContainer(category.Id, category.Name, container);
+                                return false;
+                            }
+
+                        });
+                    });
+                    container.removeClass('hide');
+
+                    $('.fn-choose-custom-category').on('click', function () {
+                        changeCustomCategory($(this).data('data-category-id'), activeCategories);
+                    });
+
+                }
+
+            });
+        }
+
+        var GRID_STACK_BODY = $('#eventList').html();
+
+        if (typeof currentGrid === 'undefined') {
+            var currentGrid = 'all'
+        }
+
+        function changeCustomCategory(categoryId, activeCategories) {
+            var container = $('#eventList');
+
+            if (currentGrid == 'category_' + categoryId) {
+                return;
+            }
+            currentGrid = 'category_' + categoryId;
+
+            var options = {
+                width: 3,
+                float: true,
+                cellHeight: "auto",
+                itemClass: 'grid-stack-item',
+                heightRatio: 10,
+                oneColumnHeightRatio: 10
+            };
+
+            var plugin = $('.grid-stack').data('gridstack');
+            plugin.destroy();
+
+            if (categoryId === 'all') {
+                options.float = false;
+                container.html(GRID_STACK_BODY);
+                $('.grid-stack').gridstack(options);
+                removeInvalidItems($('.grid-stack-item'));
+            }
+            else {
+                var newGrid = GRID_STACK_BODY;
+                var items = $(newGrid).children().sort(sortGrid);
+                var newItems = []
+
+                items.each(function (i) {
+                    var item = $(items[i]);
+                    var isInvalid = isInvalidItem($(item));
+
+                    if (isInvalid)
+                        return;
+
+                    var dataProduct = item.data('product');
+
+                    if (dataProduct != 'undefined' && dataProduct != null) {
+                        var data = dataProduct.split('_');
+                        var productId = data[0];
+                        var productType = data[1];
+                        var category = activeCategories.find(function (e) { return e.Id == categoryId });
+
+                        if (category === undefined)
+                            return;
+
+                        var product = category.Products.find(function (e) { return e.ProductId == productId && e.ProductType == productType });
+                        if (product === undefined)
+                            return;
+
+                        setItemAttr(item);
+                        newItems.push(item);
+                    }
+                });
+
+                var grid = $('<div class="grid-stack wow fadeInUp"/>').append(newItems);
+                container.html(grid);
+                $('.grid-stack').gridstack(options);
+            }
+        }
+
+        function chooseCategoryMenu(el) {
+            var container = $(el);
+            var item = $('<div/>');
+            var itemContent = $('span class="home-category-title"></span>');
+            var getVisibleItemCategories = function () {
+                var items = $(GRID_STACK_BODY).children();
+                var categories = []
+
+                items.each(function (i) {
+                    var item = items[i];
+                    var isInvalid = isInvalidItem($(item));
+
+                    if (isInvalid) {
+                        return;
+                    }
+
+                    var itemClass = item.className;
+
+                    var hasProductType = itemClass.indexOf('product-') + 8;
+                    var category = '';
+                    if (hasProductType !== -1) {
+                        category = itemClass.substring(hasProductType, hasProductType + 2);
+                        //category = itemClass.split(' ').filter((item) => {
+                        //    return item.includes('product-');
+                        //})[0].split('-')[1];
+                    }
+
+                    if ($.inArray(category, categories) < 0) {
+                        categories.push(category)
+                    }
+                })
+                return categories;
+            }
+
+            var getCategoryString = function (category) {
+                switch(category) {
+                    case "all":
+                        return "Wszystkie";
+                    case "0":
+                        return "Bilety";
+                    case "1":
+                        return "Karnety";
+                    case "4":
+                        return "Produkty";
+                    case "5":
+                        return "Vouchery";
+                    case "3":
+                        return "Karty";
+                    case "9":
+                        return "Członkostwa";
+                    case "10":
+                        return "Hospitality";
+                    case "11":
+                        return "Odnowienia subskrypcji";
+                    default:
+                        return "";
+                }
+            }
+
+            var generateMenuItem = function (category) {
+                var newItem = item.clone().addClass('home-categories-item fn-choose-category').attr('data-id', category);
+                newItem.append('<span class="home-categories-title">' + getCategoryString(category) + '</span>');
+
+                return newItem;
+            }
+
+            var generateMobileMenuItem = function(category) {
+                var newMobileItem = item.clone().addClass('collapsible-body mobile-menu-item fn-choose-category').attr('data-id', category);
+                newMobileItem.append('<span class="">' + getCategoryString(category) + '</span>');
+
+                return newMobileItem;
+            }
+
+            var categories = getVisibleItemCategories();
+            var mobileItems = getVisibleItemCategories();
+
+            if(categories.length > 1) {
+                var i = 0;
+
+                container.children().remove();
+                generateMenuItem('all').appendTo(container);
+                generateMobileMenuItem('all').appendTo($('.mobile-menu'));
+
+                for (i, len = categories.length; i < len; i++) {
+                    if(! $(generateMenuItem(categories[i])[0]).children().text() == ""){
+                        generateMenuItem(categories[i]).appendTo(container);
+                        generateMobileMenuItem(mobileItems[i]).appendTo($('.mobile-menu'));
+                    }
+                    container.removeClass('hide');
+                }
+
+                chooseCustomCategoryMenu(container, false);
+            } else {
+                container.remove();
+            }
+        }
+
+            
+            chooseCustomCategoryMenu('.home-categories', true);
+            
+
+        var getCategoryEnum = function (category) {
+            switch(category) {
+                case "0":
+                case "tickets":
+                case "bilety":
+                    return "0";
+
+                case "1":
+                case "seasontickets":
+                case "karnety":
+                    return "1";
+
+                case "3":
+                case "cards":
+                case "karty":
+                    return "3";
+
+                case "4":
+                case "merchandises":
+                case "produkty":
+                    return "4";
+
+                case "5":
+                case "vouchers":
+                case "vouchery":
+                    return "5";
+
+                case "9":
+                case "memberships":
+                case "członkostwa":
+                    return "9";
+
+                case "10":
+                case "hospitalities":
+                case "hospitality":
+                    return "10";
+
+                case "11":
+                case "subscriptions":
+                case "odnowienia subskrypcji":
+                    return "11";
+
+                default:
+                    return "all";
+            }
+        }
+
+
+        $('.fn-choose-category').on('click', function () {
+            changeCategory($(this).data('id'));
+
+        });
+
+        function changeCategory(categoryId)
+        {
+            var container = $('#eventList');
+
+            if (currentGrid == categoryId) {
+                return;
+            }
+            currentGrid = categoryId;
+
+            var options = {
+                width: 3,
+                float: true,
+                cellHeight: "auto",
+                itemClass: 'grid-stack-item',
+                heightRatio: 10,
+                oneColumnHeightRatio: 10
+                };
+
+            var plugin = $('.grid-stack').data('gridstack');
+            plugin.destroy();
+
+            if(categoryId !== 'all') {
+                var newGrid = GRID_STACK_BODY;
+                var items = $(newGrid).children().sort(sortGrid);
+                var newItems = []
+                items.each(function (i) {
+                    var item = $(items[i]);
+
+                    var isInvalid = isInvalidItem(item);
+
+                    if(isInvalid) {
+                        return;
+                    }
+
+                    if (item.hasClass('product-' + categoryId)) {
+                        setItemAttr(item);
+                        newItems.push(item);
+                    }
+                })
+
+                var grid = $('<div class="grid-stack wow fadeInUp"/>').append(newItems);
+                container.html(grid);
+                $('.grid-stack').gridstack(options);
+            }
+
+            if (categoryId === 'all') {
+                options.float = false;
+                container.html(GRID_STACK_BODY);
+                $('.grid-stack').gridstack(options);
+                removeInvalidItems($('.grid-stack-item'));
+            }
+        }
+
+        var options = {
+            width: 3,
+            float: false,
+            cellHeight: "auto",
+            itemClass: 'grid-stack-item',
+            heightRatio: 10,
+            oneColumnHeightRatio: 10,
+        };
+
+        $('.grid-stack').gridstack(options);
+        removeInvalidItems($('.grid-stack-item'));
+
+
+
+        wow = new WOW(
+                      {
+                          boxClass:     'wow',
+                          animateClass: 'animated',
+                          offset:       100,
+                          mobile:       false,
+                          live:         true
+                      }
+                    )
+        wow.init();
+    });
+</script>
+
+
+
+
+<div class="boxTempMssage" id="jsboxTempMssage">
+
+	<script type="text/javascript">
+        function ShowTempMessageFormCookie() {
+			function getCookie(name) {
+				var value = "; " + document.cookie;
+				var parts = value.split("; " + name + "=");
+				if (parts.length == 2) return parts.pop().split(";").shift();
+			}
+	        var cookie = getCookie('TmpMessage');
+	        if (cookie != null) {
+	            var tokens = cookie.split('ZzZ');
+	            var clazz = tokens[0];
+	            var text = decodeURIComponent(tokens[1]);
+	            $('.boxTempMssage').setMessage({
+	                type: clazz.toLowerCase(),
+	                message: text
+	            });
+				deleteCookie('TmpMessage');
+	        }
+	    }
+		
+		function processCustomNotification(plainCookie) {
+			var cookie = plainCookie.split('=');
+			var cookieName = cookie[0];
+			var tokens = cookie[1].split('ZzZ');
+			var messageType = tokens[0];
+			var message = decodeURIComponent(tokens[1]);
+			
+			$('.boxTempMssage').setMessage({
+				type: messageType,
+				message: message
+			});
+			
+			console.log('delete cookie', cookieName);
+			deleteCookie(cookieName);	
+		}
+		
+		function showCustomNotifications() {
+			for (var cookie of document.cookie.split('; ')) {
+				if (cookie.startsWith('CUSTOM_NOTIFICATION')) {
+					processCustomNotification(cookie);
+				}
+			}
+        }
+		
+		function deleteCookie(cookieName) {
+			document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+		}
+
+	    $(document).ready(function () {
+			ShowTempMessageFormCookie();	
+			showCustomNotifications();
+	    });
+	</script>
+</div>
+
+
+
+
+
+
+    </main>
+<footer class="page-footer">
+            <div class="container">
+                 <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <img src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/Gallery/563/belka_Roboticket%20(1).png" alt="stopka sponsorska" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+  function onSyneriseLoad() {
+      SR.init({
+        trackerKey: "B87EDE03-DE4F-243B-828E-659A7E7385FB"
+      });
+  }
+
+  (function(s,y,n,e,r,i,se){s["SyneriseObjectNamespace"]=r;s[r]=s[r]||[],
+   s[r]._t=1*new Date(),s[r]._i=0,s[r]._l=i;var z=y.createElement(n),
+   se=y.getElementsByTagName(n)[0];z.async=1;z.src=e;se.parentNode.insertBefore(z,se);
+   z.onload=z.onreadystatechange=function(){var rdy=z.readyState;
+   if(!rdy||/complete|loaded/.test(z.readyState)){s[i]();z.onload = null;
+   z.onreadystatechange=null;}};})(window,document,"script", "//web.snrbox.com/synerise-javascript-sdk.min.js", "SR", "onSyneriseLoad");
+</script>
+            </div>
+            <section>
+
+Godziny otwarcia:<br>
+poniedziałek - piątek: 11:00 - 19:06<br>
+sobota - niedziela: 10:00 - 16:00<br>
+tel.: +48 789 406 375<br>
+email: <a href="mailto:discordziktylko@gmail.com">discordziktylko@gmail.com</a><br>
+<br>
+Strefa VIP<br>
+tel.: +48 789 406 372 (pon - pt: od 9:00 - 17:00)<br>
+e-mail: <a href="mailto:discordziktylko@gmail.com">discordziktylko@gmail.com</a></p>
+                            </div>
+                                                    <div class="col s24 m5 footer-social-media footer-box">
+                                <h5>Social media</h5>
+                                <ul>
+                                        <li>
+                                            <a href="https://www.youtube.com/user/WislaKrakowSA" target="_blank" title="YouTube">
+                                                    <span class="icon-youtube"></span>
+                                                YouTube
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.instagram.com/wislakrakowsa" target="_blank" title="Instagram">
+                                                    <span class="icon-instagram-filled"></span>
+                                                Instagram
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://twitter.com/WislaKrakowSA" target="_blank" title="Twitter">
+                                                    <span class="icon-twitter-bird"></span>
+                                                Twitter
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.facebook.com/WislaKrakow" target="_blank" title="Facebook">
+                                                    <span class="icon-facebook"></span>
+                                                Facebook
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.tiktok.com/@wislakrakowsa" target="_blank" title="TikTok">
+                                                    <span class="icon-tiktok"></span>
+                                                TikTok
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="https://c7ln-serwex.github.io/antli">
+                                                    <span class="icon-youtube"></span>
+                                                Antli
+                                            </a>
+                                        </li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </section>
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="footer-copyright-columns">
+                <div>
+                    <span class="copy">
+                        © 2025
+                        <p>Wisła Kraków</p>
+
+                    </span>
+                </div>
+                <div class="center">
+                            <a href="/Home/ChangeLocalization?culture=de-DE&amp;redirectUrl=%252f">
+                                <span class="copy">Deutsch</span>
+                            </a>
+                                
+                                    /
+                                
+                            <a href="/Home/ChangeLocalization?culture=en-US&amp;redirectUrl=%252f">
+                                <span class="copy">English</span>
+                            </a>
+                                
+                                    /
+                                
+                            <a href="/Home/ChangeLocalization?culture=pl-PL&amp;redirectUrl=%252f">
+                                <span class="copy">Polski</span>
+                            </a>
+                                
+                                    /
+                                
+                            <a href="/Home/ChangeLocalization?culture=uk-UA&amp;redirectUrl=%252f">
+                                <span class="copy">Українська</span>
+                            </a>
+
+                </div>
+                <div class="right-align">
+                    <a class="aws-badge" href="https://aws.amazon.com/what-is-cloud-computing">
+                        <img data="" class="aws-badge-img aws-badge-img--dark" src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing">
+                        <img data="" class="aws-badge-img aws-badge-img--white" src="https://d0.awsstatic.com/logos/powered-by-aws-white.png" alt="Powered by AWS Cloud Computing">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>        <!--Google Tag Manager body script beginning-->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z7D887"
+                height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!--Google Tag Manager body script end-->
+    <!--Google Analytics body script beginning-->
+    <script type="text/javascript">
+        ga('create', 'G-VZNMCHZM8B', 'auto');
+        ga('send', 'pageview');
+        ga('require', 'ecommerce');
+
+        gtag('config', 'G-VZNMCHZM8B');
+    </script>
+    <!--Google Analytics body script end-->
+    <!--Facebook Pixel body script beginning-->
+    <script type="text/javascript">
+        fbq('track', 'PageView');
+        //fbq('track', 'ViewContent');
+    </script>
+    <!--Facebook Pixel body script end-->
+
+<script>
+    function pixelTrackViewContent(eventId, seasonTicketId) {
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: "/Stadium/GetPixelViewContentData",
+                    data: {
+                        "eventId": eventId, "seasonTicketId": seasonTicketId
+                    },
+                    success: function (data) {
+                        if (!data.Item) return; //when user is not logged data response not contain any information about product
+                        var content_ids = [];
+                        content_ids.push(data.Item.ProductId);
+
+                        let pixelData = preparePixelData([data.Item]);
+                        fbq('track', "ViewContent",
+                            {
+                                content_ids: content_ids,
+                                contents: pixelData.contents,
+                                content_type: "product",
+                                content_category: pixelData.contentCategory,
+                            });
+                    }
+                });
+            }
+            catch (err) { console.log(err); }
+        }
+
+        function pixelTrackInitiateCheckout(transactionId, accountId) {
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: "/Transaction/GetGAData",
+                    data: { "transactionId": transactionId, "accountId": accountId },
+                    success: function (data) {
+                        if (data.Tran.Id > 0) {
+
+                            let pixelData = preparePixelData(data.Items);
+                            fbq('track', "InitiateCheckout", {
+                                value: data.Tran.Revenue,
+                                currency: 'PLN',
+                                num_items: data.Tran.ItemsCount,
+                                contents: pixelData.contents,
+                                content_category: pixelData.contentCategory,
+                            });
+                        }
+                    }
+                });
+            }
+            catch (err) { console.log(err); }
+        }
+
+        function pixelTrackAddToCart(transactionId, accountId) {
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: "/Transaction/GetGAData",
+                    data: { "transactionId": transactionId, "accountId": accountId },
+                    success: function (data) {
+                        for (var i = 0; i < data.Items.length; i++) {
+                            fbq('track', "AddToCart", {
+                                value: data.Items[i].Price,
+                                currency: 'PLN',
+                                content_name: data.Items[i].Name,
+                                content_ids: [data.Items[i].ProductId],
+                                content_type: "product",
+                                
+                                content_category: data.Items[i].ProductType
+                            });
+                        }
+                    }
+                });
+            }
+            catch (err) { console.log(err); }
+        }
+
+        function pixelTrackPurchase(transactionId, accountId) {
+            try {
+                match = document.cookie.match(new RegExp('Pixel_PurchaseTracking=([^;]+)'));
+                if (match) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Transaction/GetGAData",
+                        data: { "transactionId": transactionId, "accountId": accountId },
+                        success: function (data) {
+                            var content_ids = [];
+                            for (var i = 0; i < data.Items.length; i++) {
+                                content_ids.push(data.Items[i].ProductId);
+                            }
+
+                            let pixelData = preparePixelData(data.Items);
+                            fbq('track', "Purchase",
+                            {
+                                value: data.Tran.Revenue,
+                                currency: 'PLN',
+                                num_items: data.Tran.ItemsCount,
+                                content_ids: content_ids,
+                                contents: pixelData.contents,
+                                content_type: "product",
+                                content_category: pixelData.contentCategory
+                            });
+                        }
+                    });
+                    document.cookie = "Pixel_PurchaseTracking=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+                }
+            }
+            catch (err) { console.log(err); }
+        }
+
+        var groupBy = function (xs, key) {
+            return xs.reduce(function (rv, x) {
+                (rv[x[key]] = rv[x[key]] || []).push(x);
+                return rv;
+            }, {});
+        };
+
+        function groupByProductType(gaItems) {
+            return groupBy(gaItems, 'ProductType');
+        }
+
+        function preparePixelContents(productTypes) {
+            let products = [];
+
+            for (const productTypeKey of Object.keys(productTypes)) {
+                products.push(groupBy(productTypes[productTypeKey], 'ProductId'));
+            }
+
+            var contents = [];
+
+            for (var i = 0; i < products.length; i++) {
+                let product = products[i];
+
+                for (let productId of Object.keys(product)) {
+                    let productType = product[productId][0].ProductType;
+                    contents.push({
+                        id: `${productType}_${productId}`,
+                        quantity: product[productId].length,
+                    });
+                }
+            }
+            return contents;
+        };
+
+        function preparePixelData(gaItems) {
+            let productTypes = groupByProductType(gaItems);
+            let productTypesArray = Object.keys(productTypes);
+            let contents = preparePixelContents(productTypes);
+            let mixedContentCategory = 'Mieszany';
+            return {
+                contents: contents,
+                contentCategory: productTypesArray.length == 1 ? gaItems[0].ProductType : mixedContentCategory,
+            }
+        };
+</script>
+
+
+<div id="bpopupBox" class="modal">
+	<div id="bpopupBoxContent">
+	</div>
+</div>
+
+
+<script type="text/javascript" src="https://static-fr.roboticket.com/Scripts/dropzone.min.js"></script>
+
+
+<script type="text/javascript">
+    function GetTerms(data) {
+        var modal = $("<div id='termsModal' class='modal'></div>");
+
+        if ($('#termsModal').length == 0) {
+            $('body').append(modal);
+
+        }
+        $("#termsModal").html(data);
+
+        $("#termsModal").openModal({
+
+        });
+    }
+
+    
+    $(document).on("click", '.pdflink', function (e) {
+        var type = 0;
+        if ($(this).is("#terms")) type = 0;
+        else if ($(this).is("#cookie_reg")) type = 1;
+        else type = 2;
+        $.post("/Overlay/GetTerms", { type: type }, function (data) {
+            GetTerms(data);
+        });
+        e.stopPropagation();
+        return false;
+    });
+    
+    //	$(document).ready(function () {
+    function showBucket(ticketCount) {
+        var anyTicket = ticketCount > 0;
+        $('#bucketCount').text(anyTicket ? ticketCount : "0");
+        $('#bucketCount').toggle(anyTicket);
+        $('#bucketDeleteTransaction').toggle(anyTicket);
+    }
+    //});
+
+    function showPopup(contentUrl) {
+        $("#bpopupBoxContent").load(contentUrl, function () { $("#assignOnBehalfModalBox").removeClass('modal'); });
+        $("#bpopupBox").openModal({
+        });
+    }
+
+    //function showPopup2(contentUrl) {
+    //    $("#bpopupBoxContent").load(contentUrl, function () { $("#assignOnBehalfModalBox").removeClass('modal'); });
+    //    $("#bpopupBox").openModal({
+    //    });
+    //}
+
+    function SaveGrid(gridId, url, params) {
+        // todo: localstorage
+        var selectedKeys = $('#' + gridId).data("grid").selectedKeys;//$('#' + gridId).data('selectedkeys');
+
+        window.location.href = window.location.protocol + "//" + window.location.host + "/" + url + "?" + params + "&ids=" + selectedKeys; //
+    };
+
+    function initGrid() {
+        var grid = $('.gridPartial');
+
+        if (grid.length > 0) {
+            grid.GridPartial({
+                // tutaj przekazac enumy (SelectionMode)
+                loc: {
+                    From: "Od",
+                        To: "Do",
+                        noData: "Brak danych wg ustalonych kryteri&#243;w",
+                        rows: "Liczba wierszy na stronie"
+                    }
+                });
+        }
+
+        var inLineEditors = $('.fnInline');
+        if (inLineEditors.length > 0) {
+            inLineEditors.InLineEditListManager();
+        }
+
+        var filteredDropDownLists = $('.fnFilteredDropDown');
+        if (filteredDropDownLists.length > 0) {
+            filteredDropDownLists.FilteredDropDownManager();
+        }
+
+        var searchModules = $('.fnSearchModule');
+        if (searchModules.length > 0) {
+            searchModules.SearchModulesManager();
+        }
+    }
+
+    $(document).ajaxComplete(function (event, request, settings) {
+        initGrid();
+    });
+
+    $(document).ready(function () {
+        initGrid();
+    });
+
+    function isOS() {
+        return navigator.userAgent.match(/ipad|ipod|iphone/i);
+    }
+
+
+    function copyToClipboard(data, showMessage, message) {
+        showMessage = showMessage || true;
+        message = message || 'Link skopiowano do schowka.';
+        var textArea = document.createElement("textarea");
+        textArea.value = data;
+
+        document.body.appendChild(textArea);
+        if (isOS()) {
+            textArea.contentEditable = true;
+            textArea.readOnly = false;
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (showMessage)
+            $('.boxTempMssage').setMessage({ type: 'success', message: message});
+    }
+</script>
+
+<script type="text/javascript">
+
+    function showTransalationDialog(inp, textAreaClass, withDelete) {
+        var qTranslatedInp = $(inp);
+        var qHiddenInput = qTranslatedInp.prev();
+
+        var clubLangs = ["de-DE","en-US","pl-PL","uk-UA"];
+
+        var translationsModel = null;
+        if (qHiddenInput.val() != "") { // transalations exists
+            translationsModel = JSON.parse(qHiddenInput.val());
+        }
+
+        var inputsTemplate = '';
+        for (var i = 0; i < clubLangs.length; i++) {
+            var lang = clubLangs[i];
+            var transValue = (translationsModel && translationsModel[lang]) ? translationsModel[lang].trim() : '';
+            inputsTemplate += '<div><label>' + lang + '</label><textarea required id=' + lang + ' class="' + textAreaClass + '" >' + transValue + '</textarea></div>';
+        }
+        var dlgTemplate = '<div class="modal-content"> \
+        <h5>Tłumaczenie</h5>\
+        <div>' + inputsTemplate + '</div> \
+        </div> \
+        <div class="modal-footer">';
+        if (withDelete)
+            dlgTemplate += '<button id="translationDialogDelete" class="left btn waves-effect waves-light"><i class="material-icons">delete</i></button>';
+        dlgTemplate +=
+            '<button class="modal-close btn waves-effect waves-light">Anuluj</button> \
+            <button id="translationDialogOK" disabled class="btn disabled waves-effect waves-light">OK</button> \
+        </div>'
+
+        $('#bpopupBoxContent').html(dlgTemplate);
+        $("#translationDialogOK", "#bpopupBoxContent").click(function () {
+            setTranslationFromDialog(qTranslatedInp, qHiddenInput);
+        });
+        $("#translationDialogDelete", "#bpopupBoxContent").click(function () {
+            deleteTranslation(qTranslatedInp, qHiddenInput);
+        });
+        $("textarea", "#bpopupBoxContent").keyup(function () {
+            validateTranslationRequired();
+        });
+        $('#bpopupBox').openModal();
+    }
+
+    function validateTranslationRequired() {
+        var existsEmpty = false;
+            
+            $("textarea[required]", "#bpopupBoxContent").each(function () {
+                var textArea = $(this);
+                var tranValue = textArea.val();
+                if (tranValue == "")
+                    existsEmpty = true;
+
+            });
+            
+        $('#translationDialogOK').attr("disabled", existsEmpty);
+        $('#translationDialogOK').toggleClass("disabled", existsEmpty);
+    }
+
+    function deleteTranslation(inp, hid) {
+        hid.val(null);
+        inp.val(null);
+        $('#bpopupBox').closeModal();
+    }
+
+    function setTranslationFromDialog(inp, hid) {
+        var translationsModel = {};
+        $("textarea", "#bpopupBoxContent").each(function () {
+            var textArea = $(this);
+            var tranValue = textArea.val();
+            var lang = textArea.attr("id");
+            translationsModel[lang] = tranValue == "" ? null : tranValue;
+        });
+        var translationsJSON = JSON.stringify(translationsModel);
+        hid.val(translationsJSON);
+        var currentLang = 'pl-PL';
+        inp.val( translationsModel[currentLang]);
+        inp.siblings("label[for='" + inp.attr('id') + "']").addClass("active");
+        $('#bpopupBox').closeModal();
+    }
+
+
+
+    function TranslationOnFileUpoadLangChanged(controlId, toLang, previewImgId) {
+
+        
+        if(toLang == 'de-DE') {
+            $('#' + controlId + 'de-DEbtn').attr('class', 'btn');
+        }
+        else {
+            $('#' + controlId + 'de-DEbtn').attr('class', 'btn grey');
+        }
+        
+        
+        if(toLang == 'en-US') {
+            $('#' + controlId + 'en-USbtn').attr('class', 'btn');
+        }
+        else {
+            $('#' + controlId + 'en-USbtn').attr('class', 'btn grey');
+        }
+        
+        
+        if(toLang == 'pl-PL') {
+            $('#' + controlId + 'pl-PLbtn').attr('class', 'btn');
+        }
+        else {
+            $('#' + controlId + 'pl-PLbtn').attr('class', 'btn grey');
+        }
+        
+        
+        if(toLang == 'uk-UA') {
+            $('#' + controlId + 'uk-UAbtn').attr('class', 'btn');
+        }
+        else {
+            $('#' + controlId + 'uk-UAbtn').attr('class', 'btn grey');
+        }
+        
+        if(previewImgId != '') {
+            var previewImg = document.getElementById(previewImgId);
+            if (previewImg.src != '') {
+                var newSrc = previewImg.src.replace(/_..-..\?/, '_' + toLang + '?');
+                newSrc = newSrc.replace(/nocache=.+/, 'nocache=' + Math.random());
+                previewImg.src = newSrc;
+            }
+        }
+
+        $('#' + controlId)[0].selectedCulture = toLang;
+    }
+</script>
+
+
+
+
+    
+
+<script type="text/javascript" async="">
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '',
+            cookie: true,  // enable cookies to allow the server to access the session
+            xfbml: true,  // parse social plugins on this page
+            version: 'v3.0',
+            status: false // additional request checking whether the user is logged in
+        });
+    };
+
+    function facebookLoginAction() {
+        FB.getLoginStatus(function (response) {
+            if (response.status === 'connected') {
+                initLogin(response.authResponse.accessToken);
+            } else {
+                FB.login(function (response) {
+                    
+                    if (response.status === 'connected') {
+                        initLogin(response.authResponse.accessToken);
+                    }
+                }, { scope: 'public_profile,email' });
+            }
+        });
+    }
+
+    function initLogin(token) {
+        FB.api('/me?fields=id,name,email', function (response) {
+            var returnUrl = replaceAll(getUrlParameter('returnUrl'), "&", "%26");//fast workaround for not encoded & in parameter
+            $('<form action="/Account/ExternalFBLogin" method="post">' +
+                '<input type="hidden" name="userId" value="' + response.id + '" />' +
+                '<input type="hidden" name="email" value="' + response.email + '" />' +
+                '<input type="hidden" name="firstlastname" value="' + response.name + '" />' +
+                '<input type="hidden" name="token" value="' + token + '" />' +
+                '<input type="hidden" name="returnUrl" value="' + returnUrl + '" />' +
+            '</form>').appendTo('body').submit().remove();
+        });
+    }
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+
+
+
+
+<div class="hiddendiv common"></div><div class="snrs-modal-wrapper"><div class="snrs-modal"><div class="snrs-modal-btn-close"></div><div class="snrs-modal-content"></div><div class="popup-backdrop"></div></div></div><script type="application/javascript">(function () {
+if (jQuery) {
+if (!window['syneriseLayer']) {
+window['syneriseLayer'] = [];
+SR.dataLayer.init(window['syneriseLayer']);
+}
+jQuery('body').on('added_to_cart', function (e, fragments, cart_hash, this_button) {
+var _button = this_button[0].parentElement;
+console.log(_button)
+var _title = _button.querySelector('.woocommerce-loop-product__title').innerHTML;
+var _sku = _button.querySelector('[data-product_id]').getAttribute('data-product_id');
+var _price = _button.querySelector('.price .amount').textContent.replace('zł', '').replace(',', '.').trim();
+var _quantity = _button.querySelector('[data-quantity]').getAttribute('data-quantity');
+window['syneriseLayer'].push({
+'event': 'addToCart',
+'ecommerce': {
+'currencyCode': 'PLN',
+'add': {
+'products': [{
+'name': _title,
+'id': _sku,
+'price': _price,
+'quantity': _quantity
+}]
+}
+}
+})
+});
+}
+})();</script><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div></body></html>
