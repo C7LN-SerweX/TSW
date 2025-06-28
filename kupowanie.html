@@ -14,7 +14,7 @@
     <div class="container">
       <a href="/" class="logo-top">
         <img src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/emblem-top.svg" class="hide-on-mobile">
-        <img src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/emblem-top-nav.svg" class="show-on-mobile">  
+        <img src="https://static-fr.roboticket.com/Content/WislaKrakow/Images/emblem-top-nav.svg" class="show-on-mobile">
       </a>
     </div>
   </header>
@@ -22,27 +22,57 @@
   <div class="container">
     <h2 class="page-title">Kup bilet na mecz Michał FC - Wisła Kraków</h2>
 
-    <!-- Krok 1: Wybór sektora -->
-    <div id="step1" class="step centered">
-      <h3>1. Wybierz sektor na stadionie:</h3>
-      <div id="sektory">
-        <div class="sektor-btn" data-sektor="A1" data-cena="2500">A1</div>
-        <div class="sektor-btn" data-sektor="B2" data-cena="3000">B2</div>
-        <div class="sektor-btn" data-sektor="C3" data-cena="3500">C3</div>
-        <div class="sektor-btn" data-sektor="D" data-cena="4000">D</div>
-        <div class="sektor-btn" data-sektor="E" data-cena="5000">E</div>
-        <div class="sektor-btn" data-sektor="F" data-cena="3000">F</div>
-        <div class="sektor-btn" data-sektor="G" data-cena="2000">G</div>
+    <!-- Krok 1 -->
+    <div id="step1" class="centered">
+      <h3>1. Wybierz sektor klikając na mapie stadionu:</h3>
+      <div class="map-container">
+        <img src="https://dfdu1vke3eg77.cloudfront.net/spaces/289/img/uploads/b42e44893de2738b9e872243325aca40.webp" usemap="#stadion" alt="Mapa Stadionu">
+        <map name="stadion">
+          <area shape="rect" coords="90,250,140,300" alt="G3" href="#" onclick="wybierzSektor('G3');">
+          <area shape="rect" coords="180,200,240,250" alt="C3" href="#" onclick="wybierzSektor('C3');">
+          <area shape="rect" coords="300,180,360,230" alt="E24" href="#" onclick="wybierzSektor('E24');">
+        </map>
       </div>
-      <button id="doKoszyka" class="step">Przejdź do koszyka</button>
+      <p id="wybrany-sektor" style="margin-top: 20px;"></p>
     </div>
 
-    <!-- Krok 2: Wpisz nick -->
-    <div id="step2" class="step hidden centered">
-      <h3>2. Wpisz swój nick w grze:</h3>
-      <input type="text" id="nick" placeholder="np. MichałPL" /><br>
-      <button id="kup">Kup bilet</button>
-      <div id="output"></div>
+    <!-- Krok 2 -->
+    <div id="step2" class="hidden centered">
+      <h3>2. Wybierz rząd i miejsce:</h3>
+      <select id="rzad">
+        <option value="">Wybierz rząd</option>
+        <option value="1">Rząd 1</option>
+        <option value="2">Rząd 2</option>
+        <option value="3">Rząd 3</option>
+      </select><br>
+      <select id="miejsce">
+        <option value="">Wybierz miejsce</option>
+        <option value="10">Miejsce 10</option>
+        <option value="11">Miejsce 11</option>
+        <option value="12">Miejsce 12</option>
+      </select><br>
+      <button onclick="przejdzDoKoszyka()">Dalej</button>
+    </div>
+
+    <!-- Krok 3 -->
+    <div id="step3" class="hidden centered">
+      <h3>3. Podaj nick w grze:</h3>
+      <input type="text" id="nick" placeholder="np. WislaFan1906"><br>
+      <button onclick="finalizuj()">Kup bilet</button>
+    </div>
+
+    <!-- Faktura -->
+    <div id="faktura" class="hidden centered">
+      <h3>✅ Bilet został wygenerowany!</h3>
+      <div class="invoice">
+        <h4>Dane biletu:</h4>
+        <p><strong>Nick:</strong> <span id="f_nick"></span></p>
+        <p><strong>Sektor:</strong> <span id="f_sektor"></span></p>
+        <p><strong>Rząd:</strong> <span id="f_rzad"></span></p>
+        <p><strong>Miejsce:</strong> <span id="f_miejsce"></span></p>
+        <p><strong>Cena:</strong> <span id="f_cena"></span> monet</p>
+        <p><strong>Komenda Minecraft:</strong><br><code id="f_komenda"></code></p>
+      </div>
     </div>
   </div>
 
@@ -53,37 +83,49 @@
   </footer>
 
   <script>
-    let wybranySektor = null;
-    let cenaSektora = 0;
+    const ceny = {
+      'G3': 4000,
+      'C3': 3500,
+      'E24': 5000
+    };
+    let wybranySektor = '';
+    let wybranyCena = 0;
 
-    document.querySelectorAll('.sektor-btn').forEach(el => {
-      el.addEventListener('click', () => {
-        document.querySelectorAll('.sektor-btn').forEach(b => b.classList.remove('selected'));
-        el.classList.add('selected');
-        wybranySektor = el.dataset.sektor;
-        cenaSektora = el.dataset.cena;
-      });
-    });
-
-    document.getElementById('doKoszyka').addEventListener('click', () => {
-      if (!wybranySektor) {
-        alert("Wybierz sektor!");
-        return;
-      }
-      document.getElementById('step1').classList.add('hidden');
+    function wybierzSektor(sektor) {
+      wybranySektor = sektor;
+      wybranyCena = ceny[sektor] || 0;
+      document.getElementById('wybrany-sektor').innerText = "Wybrano sektor: " + sektor + " (" + wybranyCena + " monet)";
       document.getElementById('step2').classList.remove('hidden');
-    });
+      return false;
+    }
 
-    document.getElementById('kup').addEventListener('click', () => {
-      const nick = document.getElementById('nick').value.trim();
-      if (!nick) {
-        alert("Podaj nick!");
+    function przejdzDoKoszyka() {
+      const rzad = document.getElementById('rzad').value;
+      const miejsce = document.getElementById('miejsce').value;
+      if (!rzad || !miejsce) {
+        alert("Wybierz rząd i miejsce!");
         return;
       }
+      document.getElementById('step3').classList.remove('hidden');
+    }
 
-      const komenda = `/usunhajs ${nick} ${cenaSektora}`;
-      document.getElementById('output').innerText = `Wygenerowana komenda: ${komenda}`;
-    });
+    function finalizuj() {
+      const nick = document.getElementById('nick').value.trim();
+      const rzad = document.getElementById('rzad').value;
+      const miejsce = document.getElementById('miejsce').value;
+      if (!nick) {
+        alert("Wpisz nick!");
+        return;
+      }
+      const komenda = `/usunhajs ${nick} ${wybranyCena}`;
+      document.getElementById('f_nick').innerText = nick;
+      document.getElementById('f_sektor').innerText = wybranySektor;
+      document.getElementById('f_rzad').innerText = rzad;
+      document.getElementById('f_miejsce').innerText = miejsce;
+      document.getElementById('f_cena').innerText = wybranyCena;
+      document.getElementById('f_komenda').innerText = komenda;
+      document.getElementById('faktura').classList.remove('hidden');
+    }
   </script>
 
 </body>
