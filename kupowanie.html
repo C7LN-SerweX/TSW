@@ -19,20 +19,72 @@
     </div>
   </header>
 
-    <div class="container">
-        <h2 class="page-title">Kup bilet Michał FC - Wisła Kraków</h1>
-        <h3>Bramki Otwarte Od Godziny 15:25.</h3>
-        <h5>Dzisiaj Biała Gwiazda Gra Na Wyjeździe. Na Stadionie Michał FC im. Michała Włodarczyka. Prezentujemy Składy Na Dzisiejszy Mecz.</h5>
-        <img src="sklady.png" alt="Składy na mecz" style="width: 100%; max-width: 600px; margin: 20px auto; display: block;">
-        <h5>Zapraszamy! Wolne Miejsce Na Stadionie Rywala: Sektor G, Miejsce 154, Rząd 1, Miejsce 155, Rząd 1, Miejsce 156, Rząd 1</h5>
-        <button onclick="window.location.href='https://paypal.me/AntoniW606/10PLN'">Miejsce 155</button>
+  <div class="container">
+    <h2 class="page-title">Kup bilet na mecz Michał FC - Wisła Kraków</h2>
+
+    <!-- Krok 1: Wybór sektora -->
+    <div id="step1" class="step centered">
+      <h3>1. Wybierz sektor na stadionie:</h3>
+      <div id="sektory">
+        <div class="sektor-btn" data-sektor="A1" data-cena="2500">A1</div>
+        <div class="sektor-btn" data-sektor="B2" data-cena="3000">B2</div>
+        <div class="sektor-btn" data-sektor="C3" data-cena="3500">C3</div>
+        <div class="sektor-btn" data-sektor="D" data-cena="4000">D</div>
+        <div class="sektor-btn" data-sektor="E" data-cena="5000">E</div>
+        <div class="sektor-btn" data-sektor="F" data-cena="3000">F</div>
+        <div class="sektor-btn" data-sektor="G" data-cena="2000">G</div>
+      </div>
+      <button id="doKoszyka" class="step">Przejdź do koszyka</button>
     </div>
+
+    <!-- Krok 2: Wpisz nick -->
+    <div id="step2" class="step hidden centered">
+      <h3>2. Wpisz swój nick w grze:</h3>
+      <input type="text" id="nick" placeholder="np. MichałPL" /><br>
+      <button id="kup">Kup bilet</button>
+      <div id="output"></div>
+    </div>
+  </div>
 
   <footer class="page-footer">
     <div class="container">
-      <p style="text-align:center; font-size: 0.9em; color: #ccc;">© 2025 Wisła Kraków | Bilety</p>
+      <p style="text-align:center; font-size: 0.9em; color: #ccc;">© 2025 Wisła Kraków | Symulacja biletów</p>
     </div>
   </footer>
+
+  <script>
+    let wybranySektor = null;
+    let cenaSektora = 0;
+
+    document.querySelectorAll('.sektor-btn').forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.sektor-btn').forEach(b => b.classList.remove('selected'));
+        el.classList.add('selected');
+        wybranySektor = el.dataset.sektor;
+        cenaSektora = el.dataset.cena;
+      });
+    });
+
+    document.getElementById('doKoszyka').addEventListener('click', () => {
+      if (!wybranySektor) {
+        alert("Wybierz sektor!");
+        return;
+      }
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    });
+
+    document.getElementById('kup').addEventListener('click', () => {
+      const nick = document.getElementById('nick').value.trim();
+      if (!nick) {
+        alert("Podaj nick!");
+        return;
+      }
+
+      const komenda = `/usunhajs ${nick} ${cenaSektora}`;
+      document.getElementById('output').innerText = `Wygenerowana komenda: ${komenda}`;
+    });
+  </script>
 
 </body>
 </html>
